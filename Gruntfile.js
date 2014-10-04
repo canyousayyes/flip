@@ -22,11 +22,31 @@ module.exports = function (grunt) {
             production: {
                 options: {
                     paths: ['<%= dir.styles %>'],
-                    cleancss: true
+                    compress: true
                 },
                 files: {
                     'site.css': '<%= dir.styles %>/site.less'
                 }
+            }
+        },
+        jshint: {
+            options: {
+                ignores: ['<%= dir.scripts %>/lib/*.js']
+            },
+            all: ['Gruntfile.js', '<%= dir.scripts %>/**/*.js'],
+        },
+        watch: {
+            config: {
+                files: ['Gruntfile.js'],
+                tasks: ['jshint']
+            },
+            scripts: {
+                files: ['<%= dir.scripts %>/**/*.js'],
+                tasks: ['jshint', 'requirejs']
+            },
+            styles: {
+                files: ['<%= dir.styles %>/*.less'],
+                tasks: ['less']
             }
         }
     });
@@ -34,8 +54,9 @@ module.exports = function (grunt) {
     // Load the plugins.
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Register tasks.
     grunt.registerTask('default', ['requirejs']);
-    grunt.registerTask('less', ['less']);
 };
