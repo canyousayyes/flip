@@ -1,6 +1,11 @@
 {
   "name": "Flip!",
   "version": "0.1.0",
+  "description": "A simple puzzle game inspired by the famous Lights Out Puzzle.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:canyousayyes/flip.git"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^0.11.4",
