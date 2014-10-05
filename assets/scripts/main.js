@@ -32,4 +32,10 @@ require(['jquery', 'tile_base', 'tile_view', 'lang'], function ($, TileBase, Til
     var b = new TileBase({color: 'black'});
     var bv = new TileView({model: b});
     $('#game_app').append(av.$el).append(bv.$el);
+    $('#card').click(function () {
+        $(this).toggleClass('flipped');
+    });
+    $('#card').on('webkitTransitionEnd', function () {
+        console.log('webkitTransitionEnd');
+    });
 });
