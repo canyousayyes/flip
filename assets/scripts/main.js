@@ -12,7 +12,7 @@ requirejs.config({
         // Game Tiles
         'tile_base': 'modules/tiles/tile_base',
         'tile_view': 'modules/tiles/tile_view',
-        'board': 'modules/board',
+        'tiles': 'modules/tiles',
         // HTML templates
         'template_tile_view': 'modules/templates/tile_view.html',
         // Game System
@@ -29,11 +29,12 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'tile_base', 'tile_view', 'lang'], function ($, TileBase, TileView, Lang) {
+require(['jquery', 'tile_base', 'tile_view', 'tiles', 'lang'], function ($, TileBase, TileView, Tiles, Lang) {
     Lang.set('en');
-    var a = new TileBase({color: 'white'});
+    var a = new TileBase({row: 0, col: 0, color: 'white'});
     var av = new TileView({model: a});
-    var b = new TileBase({color: 'black'});
+    var b = new TileBase({row: 0, col: 1, color: 'black'});
     var bv = new TileView({model: b});
+    bd = new Tiles([a, b]);
     $('#game_app').append(av.$el).append(bv.$el);
 });

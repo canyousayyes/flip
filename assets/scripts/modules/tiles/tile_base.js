@@ -5,7 +5,8 @@ define('tile_base', ['backbone', 'lang'], function (Backbone, Lang) {
                 slug: 'the_base',
                 name: Lang.str('tile.base.name'),
                 description: Lang.str('tile.base.description'),
-                position: { row: -1, col: -1 },
+                row: -1,
+                col: -1,
                 color: 'white',
                 tappable: true,
                 flippable: true
