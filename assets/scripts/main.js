@@ -12,6 +12,7 @@ requirejs.config({
         // Game Tiles
         'tile_base': 'modules/tiles/tile_base',
         'tile_view': 'modules/tiles/tile_view',
+        'board': 'modules/board',
         // HTML templates
         'template_tile_view': 'modules/templates/tile_view.html',
         // Game System

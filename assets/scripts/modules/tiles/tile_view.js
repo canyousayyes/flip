@@ -7,7 +7,7 @@ define('tile_view', ['backbone', 'underscore', 'text!template_tile_view'], funct
         },
         initialize: function () {
             this.listenTo(this.model, 'change', this.renderFlip);
-            this.render({tile_class: ''}); // Init tile view with not flipped state
+            this.render({tileClass: ''}); // Init tile view with not flipped state
         },
         // Compose an object from its model for rendering the view
         getRenderData: function () {
@@ -15,7 +15,7 @@ define('tile_view', ['backbone', 'underscore', 'text!template_tile_view'], funct
             var obj = {
                 frontColorClass: (color === 'white' ? 'tile_white' : 'tile_black'),
                 backColorClass: (color === 'white' ? 'tile_black' : 'tile_white'),
-                tile_class: 'tile_flipped'
+                tileClass: 'tile_flipped'
             };
             return obj;
         },
