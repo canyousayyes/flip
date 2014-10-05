@@ -1,43 +1,47 @@
 #game_app {
     border: 1px solid #DDD;
 }
-.container {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    margin: 0 auto 40px;
-    border: 1px solid #CCC;
+.tile_container {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
     perspective: 800px;
-}
-#card {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    user-select: none;
-    &.flipped {
-        transform: rotate3d(1,1,0,180deg);
-    }
-    .front {
-        background: red;
-    }
-    .back {
-        background: blue;
-        transform: rotate3d(1,1,0,180deg);
-    }
-    figure {
-        margin: 0;
-        display: block;
-        height: 100%;
+    .tile {
         width: 100%;
-        line-height: 200px;
-        color: white;
-        text-align: center;
-        font-weight: bold;
-        font-size: 140px;
+        height: 100%;
         position: absolute;
-        backface-visibility: hidden;
-        border-radius: 8px;
+        transform-style: preserve-3d;
+        user-select: none;
+        &.tile_animated {
+            transition: transform 1s;
+        }
+        &.tile_flipped {
+            transform: rotate3d(0,1,0,180deg);
+        }
+        .tile_face {
+            margin: 0;
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 100px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
+        .tile_back {
+            transform: rotate3d(0,1,0,180deg);
+        }
+        .tile_white {
+            background: #DDD;
+            color: #333;
+        }
+        .tile_black {
+            background: #333;
+            color: #DDD;
+        }
     }
 }

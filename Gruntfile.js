@@ -14,13 +14,15 @@ module.exports = function (grunt) {
             grunt: ['Gruntfile.js']
         },
         requirejs: {
-            options: {
-                baseUrl: '<%= dir.scripts %>',
-                mainConfigFile: '<%= dir.scripts %>/main.js',
-                name: 'main',
-                findNestedDependencies: true,
-                preserveLicenseComments: false,
-                out: 'main_built.js'
+            compile: {
+                options: {
+                    baseUrl: '<%= dir.scripts %>',
+                    mainConfigFile: '<%= dir.scripts %>/main.js',
+                    name: 'main',
+                    findNestedDependencies: true,
+                    preserveLicenseComments: false,
+                    out: 'main_built.js'
+                }
             }
         },
         less: {
